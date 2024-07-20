@@ -11,6 +11,8 @@ allow pure intuitive decisions to guide rapid development
 - [x] add tools directory
 - [x] check if convert.js works locally
 - [x] add .gitignore
+- [x] create index html file
+- [x] create single page html files for each note
 - [ ] make convert.js use something like my legacy node viewer project
 - [ ] deploy this webpage using publish
 

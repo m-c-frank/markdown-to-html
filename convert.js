@@ -1,17 +1,18 @@
 const fs = require('fs-extra');
 const path = require('path');
-const showdown = require('showdown');
-
-// Set up the showdown converter
-const converter = new showdown.Converter();
+const { marked } = require('marked');
 
 // Paths
 const notesDir = path.join(__dirname, 'notes');
 const outputDir = path.join(__dirname, 'output');
 const outputFile = path.join(outputDir, 'index.html');
 
+const convertMarkdownToHtml = (markdown) => {
+    return marked(markdown);
+};
+
 // Function to read markdown files and convert them to HTML
-async function convertMarkdownToHtml() {
+async function makeIndexPage() {
   try {
     // Ensure the output directory exists
     await fs.ensureDir(outputDir);
@@ -25,8 +26,8 @@ async function convertMarkdownToHtml() {
     for (const file of markdownFiles) {
       const filePath = path.join(notesDir, file);
       const markdown = await fs.readFile(filePath, 'utf-8');
-      const html = converter.makeHtml(markdown);
-      htmlContent += `<section>${html}</section>`;
+      const html = convertMarkdownToHtml(markdown);
+      htmlContent += `<div class="note">${html}</div>`;
     }
     htmlContent += '</body></html>';
 
@@ -40,4 +41,4 @@ async function convertMarkdownToHtml() {
 }
 
 // Run the conversion
-convertMarkdownToHtml();
+makeIndexPage();

@@ -12,6 +12,7 @@ allow pure intuitive decisions to guide rapid development
 - [x] check if convert.js works locally
 - [x] add .gitignore
 - [ ] make convert.js use something like my legacy node viewer project
+- [ ] deploy this webpage using publish
 
 i try to reference chatgpt chats but i can always give you pointers if i forget
 

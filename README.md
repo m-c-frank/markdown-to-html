@@ -6,6 +6,17 @@ goal is to publish beautiful markdown files with minimal effort
 
 allow pure intuitive decisions to guide rapid development
 
+## todo
+
+- [x] add tools directory
+- [x] check if convert.js works locally
+- [ ] add .gitignore
+- [ ] make convert.js use something like my legacy node viewer project
+
+i try to reference chatgpt chats but i can always give you pointers if i forget
+
+just message me
+
 ## chatgpts oopsies
 
 https://chatgpt.com/share/e3881de9-5c8a-4cc1-baaa-519762fe649a

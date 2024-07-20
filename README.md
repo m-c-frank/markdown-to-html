@@ -10,7 +10,7 @@ allow pure intuitive decisions to guide rapid development
 
 - [x] add tools directory
 - [x] check if convert.js works locally
-- [ ] add .gitignore
+- [x] add .gitignore
 - [ ] make convert.js use something like my legacy node viewer project
 
 i try to reference chatgpt chats but i can always give you pointers if i forget

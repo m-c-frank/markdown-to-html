@@ -7,7 +7,7 @@ const converter = new showdown.Converter();
 
 // Paths
 const notesDir = path.join(__dirname, 'notes');
-const outputDir = path.join(__dirname, 'public');
+const outputDir = path.join(__dirname, 'output');
 const outputFile = path.join(outputDir, 'index.html');
 
 // Function to read markdown files and convert them to HTML
@@ -33,7 +33,7 @@ async function convertMarkdownToHtml() {
     // Write the HTML content to the output file
     await fs.writeFile(outputFile, htmlContent, 'utf-8');
 
-    console.log('Conversion complete. Check the public folder for the output.');
+    console.log('Conversion complete. Check the output folder for the output.');
   } catch (error) {
     console.error('Error converting markdown to HTML:', error);
   }

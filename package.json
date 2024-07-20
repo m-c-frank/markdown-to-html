@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "fs-extra": "^11.2.0",
+    "gray-matter": "^4.0.3",
     "marked": "^13.0.2",
     "showdown": "^2.1.0"
   }

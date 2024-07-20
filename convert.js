@@ -1,6 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const { marked } = require('marked');
+const matter = require('gray-matter');
 
 // Paths
 const notesDir = path.join(__dirname, 'notes');
@@ -25,9 +26,20 @@ async function makeIndexPage() {
     let htmlContent = '<!DOCTYPE html><html><head><title>Notes</title><link rel="stylesheet" href="styles.css"></head><body>';
     for (const file of markdownFiles) {
       const filePath = path.join(notesDir, file);
-      const markdown = await fs.readFile(filePath, 'utf-8');
-      const html = convertMarkdownToHtml(markdown);
-      htmlContent += `<div class="note">${html}</div>`;
+      const fileContent = await fs.readFile(filePath, 'utf-8');
+      
+      // Parse the frontmatter and content using gray-matter
+      const { content, data } = matter(fileContent);
+      
+      // Optionally, use the frontmatter (data) here
+      // For example, include the title in the HTML
+      const title = data.title ? `<h1>${data.title}</h1>` : '';
+
+      // Convert the Markdown content to HTML using Marked
+      const html = convertMarkdownToHtml(content);
+      
+      // Append the HTML content to the main HTML
+      htmlContent += `<div class="note">${title}${html}</div>`;
     }
     htmlContent += '</body></html>';
 

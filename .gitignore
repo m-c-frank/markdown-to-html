@@ -1,3 +1,5 @@
 # simple nodejs project
 node_modules
 npm-debug.log
+env
+output
